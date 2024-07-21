@@ -3,7 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -61,6 +60,12 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
 }
 kapt {
     correctErrorTypes = true
