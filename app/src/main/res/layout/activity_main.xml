@@ -9,24 +9,21 @@
     android:gravity="center"
     tools:context=".view.MainActivity">
 
-    <EditText
-        android:id="@+id/linkTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/statusTxt"/>
+        tools:listitem="@layout/website_link_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="300sp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20sp"/>
 
     <Button
-        android:id="@+id/hitBtn"
         android:layout_width="wrap_content"
-        android:text="hit"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Add Link"
+        android:id="@+id/addBtn"/>
 
 </LinearLayout>

@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.hilt.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,6 +67,13 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     implementation("androidx.work:work-runtime-ktx:2.7.1")
+
+    // Room runtime
+    implementation ("androidx.room:room-runtime:2.6.1")
+    // Room KTX (optional, for Kotlin extensions)
+    implementation ("androidx.room:room-ktx:2.6.1")
+    // Room compiler (annotation processor)
+    kapt ("androidx.room:room-compiler:2.6.1")
 }
 kapt {
     correctErrorTypes = true

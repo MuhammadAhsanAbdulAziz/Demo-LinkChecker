@@ -1,27 +1,28 @@
 package com.example.demolinkchecker.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.example.demolinkchecker.api.LinkCheckerApi
-import com.example.demolinkchecker.utils.NetworkResult
+import com.example.demolinkchecker.data.local.LinkDao
+import com.example.demolinkchecker.data.local.LinkModel
 import javax.inject.Inject
 
-class LinkRepository @Inject constructor(private val linkCheckerApi: LinkCheckerApi) {
+class LinkRepository @Inject constructor(private val linkDao: LinkDao) {
 
-    suspend fun checkLink(url:String) {
 
-        try {
-            val response = linkCheckerApi.checkLink(url)
-            if(response.isSuccessful){
-                Log.d("Link Status", "${response.code()}")
-            }
-            else{
-                Log.d("Link Status", "Not Working")
-            }
-        } catch (e : Exception){
-            Log.d("Link Status", "Not Working")
-        }
+    val allLinks: LiveData<List<LinkModel>> = linkDao.getAllLink()
 
+    suspend fun insert(link: LinkModel) {
+        linkDao.insertLink(link)
+    }
+
+    suspend fun update(link: LinkModel) {
+        linkDao.updateLink(link)
+    }
+
+    suspend fun updateStatus(id: Int, status: Boolean) {
+        linkDao.updateStatus(id, status)
+    }
+
+    suspend fun delete(link: LinkModel) {
+        linkDao.deleteLink(link)
     }
 }
